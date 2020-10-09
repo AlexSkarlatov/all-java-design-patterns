@@ -18,5 +18,9 @@ public class Client {
 //        circle with red border
         redRectangle.draw();
 
+
+        ShapeI specialShape = new RedShapeDecorator(new TransparencyFill(new ThickBorder(new Circle()), 11));
+        specialShape.draw();
+
     }
 }

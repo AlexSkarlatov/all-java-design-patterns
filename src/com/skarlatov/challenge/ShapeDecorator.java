@@ -61,3 +61,22 @@ class ThinBorder extends ShapeDecorator {
         System.out.println("borderThickness == thin");
     }
 }
+//==============================================
+class TransparencyFill extends ShapeDecorator{
+    //new behavior new member fields to take care of
+    int transparency = 0;
+    public TransparencyFill(ShapeI ds, int transparency){
+        super(ds);
+        this.transparency = transparency;
+    }
+
+    @Override
+    public void draw() {
+        super.draw();
+        describeSelf();
+
+    }
+    private void describeSelf(){
+        System.out.println("object transparency level ==" + this.transparency);
+    }
+}
