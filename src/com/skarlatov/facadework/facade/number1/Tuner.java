@@ -1,4 +1,4 @@
-package com.skarlatov.facadework.facade.number1.aa;
+package com.skarlatov.facadework.facade.number1;
 
 public class Tuner {
 	String description;
