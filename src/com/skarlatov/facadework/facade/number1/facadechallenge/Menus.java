@@ -40,3 +40,9 @@ class Both implements Menus {
     }
 }
 
+class OutbackSteakHouseMenu implements Menus {
+    @Override
+    public void showMenu() {
+        System.out.println("Menu \n ************\n steaks\n potatoes\n greenbeans \n idk");
+    }
+}
