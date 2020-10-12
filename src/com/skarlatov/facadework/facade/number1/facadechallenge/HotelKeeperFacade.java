@@ -6,13 +6,22 @@ public class HotelKeeperFacade {
 
     }
     public VegMenu getVegMenu(){
-        return new VegMenu();
+        VegRestaurant v = new VegRestaurant();
+        VegMenu vm = (VegMenu) v.getMenus();
+//        return new VegMenu();
+        return vm;
     }
     public OutbackSteakHouseMenu getOutbackSteakhouseMenu(){
-        return new OutbackSteakHouseMenu();
+        OutbackSteakHouseRestaraunt steakHouseRestaraunt = new OutbackSteakHouseRestaraunt();
+        OutbackSteakHouseMenu menu = (OutbackSteakHouseMenu)steakHouseRestaraunt.getMenus();
+//        return new OutbackSteakHouseMenu();
+        return menu;
     }
     public Both getOmnivoreMenu(){
-        return new Both();
+        //new instance of restaurant
+        VegNonBothRestaurant vegNonBothRestaurant = new VegNonBothRestaurant();
+        Both b = (Both) vegNonBothRestaurant.getMenus();
+        return b;
     }
     public NonVegMenu getCarnivoreMenu(){
         return new NonVegMenu();
