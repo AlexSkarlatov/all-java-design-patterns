@@ -18,7 +18,7 @@ public class HomeTheaterFacade {
                              Screen screen,
                              TheaterLights lights,
                              PopcornPopper popper){
-    this.amp = amp;
+        this.amp = amp;
         this.tuner = tuner;
         this.dvd = dvd;
         this.cd = cd;
@@ -43,7 +43,7 @@ public class HomeTheaterFacade {
         amp.on();
         amp.setDvd(dvd);
         amp.setSurroundSound();
-        amp.setVolume();
+        amp.setVolume(10);
 
         dvd.on();
         dvd.play(movie);
