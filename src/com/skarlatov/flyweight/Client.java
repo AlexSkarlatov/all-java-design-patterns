@@ -16,7 +16,6 @@ public class Client {
             return "orange";
         } else {
             return "green";
-
         }
     }
     public static void main(String[] args) throws Exception
