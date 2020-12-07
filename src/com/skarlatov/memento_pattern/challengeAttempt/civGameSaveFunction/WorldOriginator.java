@@ -32,6 +32,17 @@ public class WorldOriginator {
 
 
 
+    public void undo(Object mementoObject){
+        CivBEMemento memento = (CivBEMemento)mementoObject;
+
+        //TODO gotta do undo
+        //use memtno object to overwrite this objects current state fields
+//        playerCities.add(new CivilizationBECity());
+//        this.sciencePerTurn = sciencePerTurn;
+//        this.culturePerTurn = culturePerTurn;
+//        this.faithBank = faithBank;
+//        this. faithPerTurn = faithPerTurn;
+    }
 
     public CivBEMemento save(){
 
@@ -54,12 +65,9 @@ public class WorldOriginator {
 
 
     }
-    public CivBEMemento createMemento(){
-
-
-
-
-    }
+//    public CivBEMemento createMemento(){
+//
+//    }
 
     private class CivBEMemento{
         private int sciencePerTurn, culturePerTurn, faithPerTurn, faithBank;

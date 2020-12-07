@@ -18,8 +18,9 @@ public class GameCaretaker {
         this.objects.add(worldOriginator.save());
     }
     public void undo(WorldOriginator worldOriginator){
-        worldOriginator.undo(Object);
+        worldOriginator.undo(object);
     }
+
 
 //    //the caretaker class interacts with the memento internal class via the external class
 ////    using an reference to the external class
