@@ -10,6 +10,9 @@ public class GameCaretaker {
 
     private Object object;
     private ArrayList<Object> objects;
+
+
+
     public void save(WorldOriginator worldOriginator){
         this.object = worldOriginator.save();
         this.objects.add(worldOriginator.save());

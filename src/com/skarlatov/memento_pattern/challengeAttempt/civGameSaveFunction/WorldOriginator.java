@@ -33,8 +33,13 @@ public class WorldOriginator {
 
 
 
-    public Memento save(){
+    public CivBEMemento save(){
 
+        //just to be sure it is deep copy
+//        ArrayList<CivilizationBECity> deepList = new ArrayList<>(playerCities);
+//        return new CivBEMemento(this.sciencePerTurn,this.culturePerTurn,this.faithPerTurn,this.faithBank, deepList);
+
+        return new CivBEMemento(this.sciencePerTurn,this.culturePerTurn,this.faithPerTurn,this.faithBank,this.playerCities);
     }
 
     public void setMementoSaveFile(CivBEMemento memento){
@@ -71,7 +76,7 @@ public class WorldOriginator {
             this.culturePerTurn = culturePerTurn;
             this.faithBank = faithPerTurn;
             this. faithPerTurn = faithBank;
-            this.playerCities = playerCities;
+            this.playerCities = new ArrayList<CivilizationBECity>(playerCities);
         }
         public int getSciencePerTurn() {
             return sciencePerTurn;
