@@ -62,11 +62,16 @@ public class WorldOriginator {
 
 
 
-        public CivBEMemento(int sciencePerTurn, int culturePerTurn, int faithPerTurn , int faithBank){
-            this.sciencePerTurn = ;
-            this.culturePerTurn = ;
-            this.faithBank = ;
-            this. faithPerTurn = ;
+//        public CivBEMemento(){
+//
+//        }
+
+        public CivBEMemento(int sciencePerTurn, int culturePerTurn, int faithPerTurn , int faithBank, ArrayList<CivilizationBECity> playerCities){
+            this.sciencePerTurn = sciencePerTurn ;
+            this.culturePerTurn = culturePerTurn;
+            this.faithBank = faithPerTurn;
+            this. faithPerTurn = faithBank;
+            this.playerCities = playerCities;
         }
         public int getSciencePerTurn() {
             return sciencePerTurn;
