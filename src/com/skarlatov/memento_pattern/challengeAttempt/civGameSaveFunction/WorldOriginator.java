@@ -37,6 +37,11 @@ public class WorldOriginator {
 
         //TODO gotta do undo
         //use memtno object to overwrite this objects current state fields
+        playerCities = new ArrayList<>(memento.getPlayerCities());
+        this.sciencePerTurn = memento.getSciencePerTurn();
+        this.culturePerTurn = memento.getCulturePerTurn();
+        this.faithBank = memento.getFaithBank();
+        this. faithPerTurn = memento.getFaithPerTurn();
 //        playerCities.add(new CivilizationBECity());
 //        this.sciencePerTurn = sciencePerTurn;
 //        this.culturePerTurn = culturePerTurn;

@@ -17,6 +17,9 @@ public class GameCaretaker {
         this.object = worldOriginator.save();
         this.objects.add(worldOriginator.save());
     }
+    //to use the multiple save file I would have to complexify this method by adding an extra parameter
+    // an int parameter would be added to track down the correct save file
+    //or alternatively upon creation of a carateaker object it must maintain a reference to an originator object which it is managing its save files for
     public void undo(WorldOriginator worldOriginator){
         worldOriginator.undo(object);
     }
