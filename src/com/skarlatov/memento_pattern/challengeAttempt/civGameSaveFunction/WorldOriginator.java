@@ -98,6 +98,17 @@ public class WorldOriginator {
         this. faithPerTurn = faithPerTurn;
     }
 
+    public  void undoToSpecificSave(Object mementoObject){
+        CivBEMemento memento = (CivBEMemento) mementoObject;
+
+        //usememento object to overwrite this objects current state fields
+        playerCities = new ArrayList<>(memento.getPlayerCities());
+        this.sciencePerTurn = memento.getSciencePerTurn();
+        this.culturePerTurn = memento.getCulturePerTurn();
+        this.faithBank = memento.getFaithBank();
+        this. faithPerTurn = memento.getFaithPerTurn();
+
+    }
     public void undo(Object mementoObject){
         CivBEMemento memento = (CivBEMemento)mementoObject;
 

@@ -6,7 +6,7 @@ import com.skarlatov.memento_pattern.FileWriterUtil;
 public class StartGame {
     public static void main(String... args){
         //STEP ONE CREATE THE ORIGINATOR AND THE  caretaker object
-        //TODO CREATE THE ORIGNATOR AND THE CARETAKER
+        //CREATE THE ORIGNATOR AND THE CARETAKER
         GameCaretaker caretaker = new GameCaretaker();
         WorldOriginator worldOriginator = new WorldOriginator();
       // original value
@@ -14,20 +14,20 @@ public class StartGame {
         System.out.println(worldOriginator.toString());
 
 
-        //TODO IN THE ORIGNIATOR YOU MUST CHANGE STATE
+        // IN THE ORIGNIATOR YOU MUST CHANGE STATE
         worldOriginator.addCulturePerTurn(55);
         worldOriginator.addFaithPerTurn(100);
         worldOriginator.addSciencePerTurn(500);
 
-        //todo you must print out the initial state
+        // you must print out the initial state
 //        worldOriginator.toString();
         System.out.println(worldOriginator.toString());
-        //TODO IN THE ORIGINATOR YOU MUST SAVE STATE TEST TO SEE IT WORKS
+        // IN THE ORIGINATOR YOU MUST SAVE STATE TEST TO SEE IT WORKS
 //        caretaker.save(worldOriginator);
-        //TODO IN THE ORIGINATOR YOU MUST CHANGE STATE THEN PRINT OUT
+        // IN THE ORIGINATOR YOU MUST CHANGE STATE THEN PRINT OUT
         // you must undo the state back to original
-        //TODO IN THE ORIGNATOR YOU MUST REVERT STATE BACK AND PRINT IT OUT TO SEE IF IT WORKS
-        //aaaa
+        // IN THE ORIGNATOR YOU MUST REVERT STATE BACK AND PRINT IT OUT TO SEE IF IT WORKS
+        //todo make the comments much cleaner to read
         caretaker.undo(worldOriginator);
         System.out.println(worldOriginator.toString());
 

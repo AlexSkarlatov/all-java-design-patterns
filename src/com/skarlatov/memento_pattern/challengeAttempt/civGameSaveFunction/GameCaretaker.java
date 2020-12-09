@@ -18,15 +18,21 @@ public class GameCaretaker {
         // code to add save() lines to the list is not yet created
 
         //todo fix this line of code
-//        this.objects.add(worldOriginator.save());
+        //adding capability to multiple save filesw stores in an array
+        this.objects.add(object);
     }
     //to use the multiple save file I would have to complexify this method by adding an extra parameter
     // an int parameter would be added to track down the correct save file
     //or alternatively upon creation of a carateaker object it must maintain a reference to an originator object which it is managing its save files for
+
     public void undo(WorldOriginator worldOriginator){
         worldOriginator.undo(object);
     }
 
+    public void revertToFile(int fileNum, WorldOriginator worldOriginator){
+        //todo implement the undoToSpecificSave method
+        worldOriginator.undoToSpecificSave(objects.get(fileNum));
+    }
 
 //    //the caretaker class interacts with the memento internal class via the external class
 ////    using an reference to the external class
