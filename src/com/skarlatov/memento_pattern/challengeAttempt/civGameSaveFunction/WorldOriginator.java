@@ -7,17 +7,87 @@ import java.util.ArrayList;
 
 public class WorldOriginator {
     //state
-    int sciencePerTurn, culturePerTurn, faithPerTurn, faithBank;
-    ArrayList<CivilizationBECity> playerCities;
+    int sciencePerTurn;
+    int culturePerTurn;
+    int faithPerTurn;
+    int faithBank;
+    ArrayList<CivilizationBECity> playerCities = new ArrayList<>();
+
+
+    // to string method added for health check and testing
+    //todo polish the appearance of the toSTring method and call it game status or notification or something
+    @Override
+    public String toString() {
+        return "WorldOriginator{" +
+                "sciencePerTurn=" + sciencePerTurn +
+                ", culturePerTurn=" + culturePerTurn +
+                ", faithPerTurn=" + faithPerTurn +
+                ", faithBank=" + faithBank +
+                ", playerCities=" + playerCities +
+                '}';
+    }
+
+    //    public String toString(){
+//        return " ";
+//    }
+//getters basic
+    //TODO BETTER OFF TO SET THESE TO PRIVATE AND EXPOSE AN ENCAPSULATED METHOD TO A SEPARATED CLASS TO MANAGE RADICAL CHANGE IN GAME FUNCTION
+    public int getSciencePerTurn() {
+        return sciencePerTurn;
+    }
+
+    public int getCulturePerTurn() {
+        return culturePerTurn;
+    }
+
+    public int getFaithPerTurn() {
+        return faithPerTurn;
+    }
+
+    public int getFaithBank() {
+        return faithBank;
+    }
+
+    //setters basic
+    public void setSciencePerTurn(int sciencePerTurn) {
+        this.sciencePerTurn = sciencePerTurn;
+    }
+
+    public void setCulturePerTurn(int culturePerTurn) {
+        this.culturePerTurn = culturePerTurn;
+    }
+
+    public void setFaithPerTurn(int faithPerTurn) {
+        this.faithPerTurn = faithPerTurn;
+    }
+
+    public void setFaithBank(int faithBank) {
+        this.faithBank = faithBank;
+    }
+
+
+    //adding more resources per turn
+    public void addSciencePerTurn(int sciencePerTurn) {
+        this.sciencePerTurn += sciencePerTurn;
+    }
+
+    public void addCulturePerTurn(int culturePerTurn) {
+        this.culturePerTurn += culturePerTurn;
+    }
+
+    public void addFaithPerTurn(int faithPerTurn) {
+        this.faithPerTurn += faithPerTurn;
+    }
+
 
 
     public WorldOriginator(){
+//        playerCities = new ArrayList<>();
         playerCities.add(new CivilizationBECity());
         this.sciencePerTurn = 10;
         this.culturePerTurn = 8;
         this.faithBank = 0;
         this. faithPerTurn = 0;
-
     }
     public WorldOriginator(int sciencePerTurn, int culturePerTurn, int faithPerTurn , int faithBank)
     {
@@ -28,14 +98,10 @@ public class WorldOriginator {
         this. faithPerTurn = faithPerTurn;
     }
 
-
-
-
-
     public void undo(Object mementoObject){
         CivBEMemento memento = (CivBEMemento)mementoObject;
 
-        //TODO gotta do undo
+
         //use memtno object to overwrite this objects current state fields
         playerCities = new ArrayList<>(memento.getPlayerCities());
         this.sciencePerTurn = memento.getSciencePerTurn();
@@ -89,7 +155,7 @@ public class WorldOriginator {
             this.culturePerTurn = culturePerTurn;
             this.faithBank = faithPerTurn;
             this. faithPerTurn = faithBank;
-            this.playerCities = new ArrayList<CivilizationBECity>(playerCities);
+            this.playerCities = new ArrayList<>(playerCities);
         }
         public int getSciencePerTurn() {
             return sciencePerTurn;

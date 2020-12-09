@@ -4,7 +4,8 @@ public class Client {
     public static void main(String... args){
         Originator originator = new Originator();
         Caretaker caretaker = new Caretaker();
-
+// I cans see that this is a different layout of the caretaker to originator architecture that utilizes the communication to the memento pattern a little differently than the first example
+        //but quite frankly the first implementation is just more intuitive and cleaner communication wise
 
 
         originator.setState("state 1");
