@@ -15,7 +15,10 @@ public class GameCaretaker {
 
     public void save(WorldOriginator worldOriginator){
         this.object = worldOriginator.save();
-        this.objects.add(worldOriginator.save());
+        // code to add save() lines to the list is not yet created
+
+        //todo fix this line of code
+//        this.objects.add(worldOriginator.save());
     }
     //to use the multiple save file I would have to complexify this method by adding an extra parameter
     // an int parameter would be added to track down the correct save file
