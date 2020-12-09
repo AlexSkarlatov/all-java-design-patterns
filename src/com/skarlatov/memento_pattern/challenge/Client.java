@@ -24,6 +24,13 @@ public class Client {
         originator.getStateFromMemento(caretaker.get(0));
         System.out.println("first saved state:  " + originator.getState());
 
+        // final thoughts and notes as of 12/9/2020
+        // originator will request a memento from the caretaker who only manages the mementos
+        // a caretaker does not create meementos
+        // a client does not need to store a reference to a memento rather the originator must handle the reference to thmemento and the caretaker also
+        // but remember the originator is the only  one who is allowed to create a  memento.
+        // the basic architecture is the same but there can be 2 variations in call implementations
+        // slightly varied
         originator.getStateFromMemento(caretaker.get(1));
         System.out.println("second saved state:  " + originator.getState());
 

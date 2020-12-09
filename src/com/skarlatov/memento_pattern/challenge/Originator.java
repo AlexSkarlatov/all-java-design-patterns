@@ -1,5 +1,8 @@
 package com.skarlatov.memento_pattern.challenge;
 
+
+
+// the originator is the only one who has authorization to make a memento of itself
 public class Originator {
     private String state;
 
