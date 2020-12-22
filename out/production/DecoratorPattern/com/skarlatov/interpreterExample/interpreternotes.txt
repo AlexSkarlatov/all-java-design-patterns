@@ -1,0 +1,91 @@
+OVERVIEW
+The interpreter design pattern provides a way to evaluate a language grammer of expression
+	• The formal definition is given a language , define a representation for its grammar along with an interpreter that uses the representation to interpret senetences in the language
+		○ We define a grammatical representation for a language and provide an interpreter to deal with that grammar
+	• Involves implementing an expression interface which tells how to interpret a particular context
+	• The interpreter pattern requires some knowledge of formal grammmars
+
+
+WHAT ARE GRAMMARS
+	• A GRAMMAR IS A WAY TO REPRESENT A VALID SENTEENCES IN A LANGUAGE
+	• IT DEFINES A LANGUAGE USING SPECIAL SYMBOLS AND SYNTAX
+	• IT IS ALSO DEFINED BY SP3ECIFYING A NUMBER OF RULES
+		○ EACH RULE SPECIFIYNG HOW A SINGLE SYMBOL CAN BE REPLACED BY OONE OF A SELECTION OF SEQUENCES OF ATOMS AND SYMBOLS
+	• A GRAMMAR CONSISTS OF THE FOLLOWING A
+		○ ONE: A SET OF VARIABLES OR NON TERMINAL SYMBOLS
+		○ TWO: A SET OF TERMINAL SYMBOLS
+		○ THREE: S IS A SPECIAL VARIABLE CALLED THE START SYMBOL
+		○ 4 : P REPRESENTS PRODUCTION RULES FOR TERMINALS AND NON TERMINALS
+
+PRODUCTION RULES AND TERMINAL NOJN TERMINALS
+
+
+
+GRAMMAR EXAMPLE
+{{S A B}}
+
+{A, B}
+
+S
+
+{{S -- AB, A -- A, B --- B))
+
+
+	• S A AND B AR NON TERMINAL SYMBOLS, THAT IS (VARIABLES)
+	• A and b are terminal symbols (actual characters)
+	• S is the start sysmbol
+	• Productions, P : S-- AB, A--a, b--b
+		○ The production rules are applied in any order until a string that conteins neither the start symbol nor a designated non terminal symbol is produced
+	• A single rule is applied to a string by replacing one occurrence of the production rules left hadn side in t he string that production rules right hand side
+		○ The language fromed by the grammar consists of all distinct strings that can be generated in this iamnner any particular sequenceo f production rules on the start smbols yields a distinct string in the the language
+
+
+
+
+BACK TO THE INTERPRETER
+	• When you need to implement a simple language you can use the interpreter pattern
+		○ Describes how to define a grammar for simple languages represent sentences in the language and interpret these sentences
+		○ To represent the language ouccan use a class to treppresent each rule in the language
+		○ Sea
+	• Searching for strings that match  a pattern is a common problem
+		○ Regular expressions are a standard language for speicifying patterns of strings
+		○ Search algorithms could interpret a regular expression that specifies a set of strings to match
+		○ That
+	• The pattern describes how to define a grammear for regular expressions, represent a particular regular expression, and how to interpret that regular expression
+
+
+Examples
+	• A language translator who translates a language for us
+	• A google tranalster where the input cn be in any language and we can get the output interpreted in another language
+	• We can consider music notes as a grammer and musicians as our interpreters
+	• A java compiler interpret the source code into byte code
+		○ Byte code is understandable by jvm --- (the java virtual machine)
+	• Widely used to interpret the statements in a language as abstract syntax trees
+	• Used in sql parsing and a symbol processing engine
+	• Java.util.pattern and subclasses of java.text.format are some of the examples of interpreter pattern used in JDK
+
+
+Advantages and drawbacks
+	• Easy to implement if each grammar rule is represented by a class
+		○ Allows you to easily change or extend the language
+		○ By adding methods to the class structure you can add new behaviors beyond interpretation
+	• The pattern makes it easier to evaluate and expression in a new way
+		○ You can support pretty printing or type checking an expression by defingin a new operation on the expression classes
+	• On drawback is that when the number of grammar rules is large it is harder to maintain the code
+		○ The interpreter defines at least one class for every rule in the grammar
+		○ In these cases a parser / complier generator may be more apporpriate
+	• Requries a lot of error chekcing and a lot of expressions and code to evaluate
+
+
+When to use this pattern
+Use the int
+	• When to use this pa
+	• Use the interpreter pattern when there is a language to tinerprete and when the language is simple, (grammar does not have many rules
+		○ Should be able to represent statements in the language as abstract syntax trees
+		○
+		○
+		○
+	• Apprpriate when simplicity is more important then efficiency
+		○ Most efficient interpretres are usually not implemented by interpreting parse trees directly but by first translating them into another form
+			§ Regular expressions are often transformed into state machines
+	• Used for scripting and programming languages
