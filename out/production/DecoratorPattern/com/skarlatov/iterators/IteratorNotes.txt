@@ -1,0 +1,71 @@
+Overview
+	• The iterator desing pattern provideds a way to access the elements of an aggregate object sequenctially without exposing its underlying reprpesentation
+	• And aggregate object is an object that contains other objects for the purpose of grouping those oobjects as a unit
+		○ Also called a container or a collecgin
+		○ Examles are linked list and hashtable
+	• Iterators are generally used to travers a container to access its elements
+	• It is a very commonly used design pattern in java with the collection framerwork used to access the elements of a colle tion object the
+	• The pattern hides the actual implemntattions of traversal through the collection cleint
+	• Cleint programs just use the ieterator methosd
+
+
+Examples
+	• Suppose there are two commpanies
+	• Company a and company b
+	• Big array
+	• Big list linked
+	• On
+One day compan8es deciedde to work together
+	The iterator pattern will allow us to have a common interface through which we can access data for both compaineis
+	We will simply call the same mehtod withou re writing any code
+
+Another example would be in a college
+	The arrts department may use an array data structure
+	The science dept may use linked list data structure to store their students records
+
+	More overview
+	• As mentioned this pattern gives you a way to step through the elements of an aggregate without having to know how things are represented under the covers
+	• An I
+	• An iterator object is responsivle for keeping track of the current element I
+	• It knows which elements have been traversed already
+	• Once you have a uniform wayh of accessing the elements of all you r aggregate objects, you can write polymophinc code that works with a ny of these aggregates
+	• The iterator allows different traversal methods forwards and backward
+	• Allows multiple traversals to be in progress concurrently
+	• Places the task of traversal on the iterator object not on the aggregate
+		○ Simplifies the aggregate interface and implementation
+		○ Places the responsibility where it should be
+			§ Keeps the aggregatge focusesed on the things it sohould be focused on which is managing a collection of objects , not on iteraction
+
+So when to use this pattern
+	• When you want to provide a standard way to iteragte over a collection and hide the implementaion logic fromclient program
+		○ The logic for iteration is embedded in the collection itself and it helps the client program to iterate fver them easily
+	• Use the pattern to support multiple traversals of aggregbate objects
+	• Use the pattern supprot polumorphic iteration
+
+
+
+
+
+
+Participants
+	• Iterator
+		○ Defines an interface for accessing and traversing elements2
+	• Concrete Iterator
+		○ Implements the iterator interface
+		○ Keeps track of the current position in the traversal of the aggregate
+	• Aggregate
+		○ Defines an interface for creating an iterator object
+	• ConcreteAggregate
+		○ Implements the Iterator creation interface to return an instance of the proper Concrete Iterator
+	• A concrete iterator keeps track of the current object in the agggreagate and can compute the succeding object in the traversal
+
+Implmentation consequences
+The
+	• The implmeentation supports variations in the traversal of an aggregate
+		○ May traverse the parse tree inorder or preorder
+	• Iterators make it easy to change the traversal algorithm
+		○ Just replace the iterator instance with a different one
+		○ You can also define iterator subclasses tosupport new traversals
+	• More than one traversal can be pending on an aggregate
+		○ An iterator keeps track of its onw traversl state
+		○ You can have more than one traversal in progress at once
