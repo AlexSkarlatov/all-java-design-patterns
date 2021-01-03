@@ -25,10 +25,6 @@ public class Client {
 
         System.out.println("\nARts subjects");
         print(Ar_iterator);
-
-
-
-
     }
 
 
