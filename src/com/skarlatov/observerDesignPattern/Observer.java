@@ -11,7 +11,7 @@ public interface Observer {
 
 
 class MyTopicSubscriber implements Observer {
-    private String name;
+    private String name, msg;
 
     // not required , could just pass the subjectw state tothe update method but also used to attach
     private Subject topic;
@@ -35,7 +35,7 @@ class MyTopicSubscriber implements Observer {
         }
         else{
             System.out.println(name + " :: Consumeing message :: " + msg);
-
+            this.msg = msg;
         }
 
     }

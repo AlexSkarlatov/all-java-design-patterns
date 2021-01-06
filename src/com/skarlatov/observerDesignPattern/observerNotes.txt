@@ -1,0 +1,170 @@
+Overview
+
+	• The observer design pattern defines aone tro many dependency between objects so that when one object changes state all of its dependents are notified and updated automatically
+	• Many objects need to be notified whjenever an event occurs and wants to be notified automatically
+		○ However, I do not want to change the broadcasting objedct every time there is a change to the set of objects listening to the broadcast5
+			§ Would be like havingf to change a radio transmitrter ewvery time a new car radio comes to town
+			§ Want to decouple the notify-ers and the notrify-eesw
+			§ This is what the observer pattern solvesl
+
+	• In this pattern there are many observers ( they ar objects) which are obsservimng a particular subject ( who is also an object)
+		○ Observer register themnselves to a subject and are automatically notified when rthe subject changes
+			§ When they lose interest the subject they simply unregfister from the subject
+	• Provides a loosely coupled design between objecrts that interact
+		○ More flexibility with changing requirements
+	• One of the most common design patterns that is used in software development
+
+Here are some examplews
+	• A great example is how newspapers or mmagazines suibscriptions work
+	• A newspaper goes into business and beginbs publishing newspapers
+	• Yuou subscribe to a particular publisher and every time there is a  neww  edition it gets delivered to you o
+	• As long as you remain a subscriber you get new newspapers
+	• You unsubscribe when you do not want papers anymore
+		○ They stop being delivered
+	• While the publisher object remains in business people airlines and other businesse3s constantly subscribe a nd unsubscribe to the newspaper
+
+
+More examples
+	• How about aa celebrity whoahs many fans
+		○ Each of these fans wantsw to get all the latestr updates of his her favorite celebrity
+		○ He she can foll;ow the celebrity as long as his her interest persists
+		○ When theyt lost interest they simply stop following that celebrity
+		○ The fan is an observer and the celebrity is the subjewct
+	• Consider a simple ui based example, where this uid is connected with some database
+		○ A user can exsecute some query through that ui and after searching the database, the result is reflected back in the ui
+		○ If a change occurs in the database, thye ui should be notified sdo that it can updatea its display acording to the changte
+	• Hkeavily8 used in gui toolkits and listeners
+		○  the button subject and on click listern() observer are modelledd with the observer pattern
+		○ Social media , rss feeds, email subscriptions in which you  have the option to follow or subscribe and you receive the latesrt notification
+		○ All users of an app on the agoogle play store get notified if there is an update
+
+ONE TO MANY RELATIONSHIP
+	• The observer pattern definews a one to many relationship between a set of objects
+		○ When the state of one object changes all of irts dependents are notified
+	• The subject and obsedrvers define the one to many relatiionship
+		○ Observers are dependent on the subject such that when the subjects state changes the observedrs get notified
+
+
+When a chagne to one obnject rrequires changing other and you do not know how many objects need to be changted
+
+When to use this pattern
+	• When a change to one object requires chagning other objects and you do not know how many objects need to be changed
+	• When multiple objects are dependent on the state of one object
+	• When an object should be able to notify other objects without making asssumptions about who these objects are
+		○  you do not want these objects tightly coupled!!!!!
+
+
+
+
+Implementation overview
+Class diagram
+
+
+
+
+
+
+
+
+
+Overview
+*&
+	• Aato understand obsedrver pattern implementation first you need to understand rthe saubject and observer objects
+	• The relation between subject and observer can easily be understood as an analogy to magazine subscription
+	• A magazine publisher subhject is in the business and publishedss
+	• If you uunsub you stop ggetting new edtiontois
+	• Publisher does not know hwho youo are and how use the magazaine it just deliver it you abecause you are a subscriber
+	• Observer and subject are interfraces or abstract classees
+
+
+
+Participants
+	• Subjects
+		○ Knows of its observer ;( contrains a list of observers to notify
+		○ Any number of observer objects may observe an subject
+		○ Provides an interface for attaching and detachin observer objects
+			§ Methods allowing observer to register and unregister themseelves
+			§ Also contains a method to nootify all the obsedrver of any changfe
+	• Obsderrver
+		○ Defiens an updating interface for objects that soho09uld be notified of changes in a subject
+		○ All potential observer need to implement this interface
+
+
+	•  thje concrete subject
+		○ Stores state of interest to ConcreteObsedrver Objects
+		○ Sends a notificaation ot its observer when iuts state changes
+	• CocnreteObvbserver
+		○ Maintains a referenced to a concrete subject object
+		○ Storews state that should stayu consisrten with the subjects state
+		○ Dimplements the observer updateing interface to keep its state consistent with the subjects
+
+Sequence diagtram
+	• The contcrete Subject notifies its observers whenever a change occurs that  could make its observer state inconsistent with its own
+	• After beiong inofrmed of a change in the concrete subject, a concrete obsedrver object may query the subject fdor information
+		○ Concrete observer uses this information to reconcile its state with athat of the subject
+	• Rthe observer object thjat initiates the change request postpones its update until it gets a notification from the subject
+		○ Notifyn is not always called by the subject
+'advandatages of the implemeentation
+
+	• The observer pattern provide34s an object dewsigne where swubjects and obsedrvers are loosely coupled
+	• The only thiung the subject knows about an observer is that it implements a certyain interacae the observer interface
+	• Does not need to know the conretre class of the observer what it does or anything else abourt it
+	• We can add new observers at any time
+		○ The only thing the subgject depends on is a list of objects that implement trhe observer interface
+		○ We can replace any observer at runtime with another observer and the subject will keep purring along
+	• We never need to modify thee subbject to add new types of observers
+	• All we have top doi is implement the obsedrver interface in the new classs and register that as an observewr
+		○ Subject does not care it will deliver notification to any object htat implmeents the obsderver interface
+	• We can reuse subjects or obserrver independantlyu of each other
+		○ If we can have another use foir a subject or an obwserver we can easily reuse them bec ause the two are not tightly coupled
+	• Changes ot eiterh the subject or an obserrver will not affect the other
+		○ As long as the objects still meet their oblications to implement the subject or obsedrver interfaces
+
+Java.util impelmentation of the obhserver pattern
+
+
+	• The Observer pattern is so usefule that java contains an implemenetatrion of its in its packages
+	• These are quite similar to our subject and obsderver interfaces but ygive you a lot of functionality out of the box
+		○ You can also implement ieither a push or pulll style of update to your observers
+		○ T
+	• The obsdervable class and the observer interface make up the pattern
+		○ Observable classs playes the role of the subjecvct
+	• Instead of the methods attach , detach, and notify , java uses addObserver, deleteObserver, and notifyObserver
+	• Isntead of trhe methods attach detatch and notifyh java uses addobserver, deletre observer and notify obser ver
+
+	• Java
+Java impleomentation
+	• For an object to becomed an observer you will need to implemenet the boserver interfacew
+		○ Call addboserver() on any observable object
+		○ To remove yourselfvf as an observer just cal delete observer()
+	• Fror the obsedrvable to send notifications you need to be observable by extendinrt eh ajava .util.observable superclass
+		○ You first must call the setchanged() method to signify that the state has changed in oyour subject
+		○ Thjen calll one of the towo notify observers() methods( notofiy observer() or notify observer(objhect arg))
+
+	• For an observer to receive notificazitons it must implement the update method
+		○ The signatyture of the ethod is a bit different
+			§ If you want to push data to the boservers you can pass the data as a data object to the notify observers() method
+			§ If not, then the boserver has to poull the data it wants from the observ albe passed to it
+		○ T
+	• The set changed() mehtod  is sued to signify that the statre has changed when notify observedrs() is called it should update its observers
+	• If notif
+		○ If notify boserrs is calledd without first calling sety changed() the obsedrvers will not be notified
+	• You neeed to call setchanged for notifications to work
+		○ You may also want to use the clearchanged() method which sets the changed starte back ot fralse
+		○ And the haschanged method, which tells you the curent state of the  changed flagl
+
+Observation on java implemmentation
+
+	• The java .util.obsdervable impl;emenmtnation has anumber of problems that limit itsusefuleneess and resue
+		○ Not widely used
+		○ Implementation is really simple
+		○ A
+	• Observable is a class
+		○ You have to subclass it
+		○ Means you cannot add on the observable behavior to an existing class that already extends another superclass
+		○ Observable may server your needs if you can esxtend java.uitil.observable
+		○ There is no observable interface
+	• There is nobserveabgle interface
+		○ Yuou cannot create your own implmementation that plays well withj javas built in iobserver api
+		○ Lyou do not have the option of swapping out the java.utiil implementation for another , say, perhabps a,. A new multithreaded implementation
+	• Observbable may servder you needs if you can extend java.util.observable

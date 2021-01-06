@@ -61,6 +61,7 @@ class MyTopic implements Subject{
         }
     }
 
+    //returns a change in state, is meant to be used by the observer
     @Override
     public Object getUpdate(Observer obj) {
         //return state back to observer
