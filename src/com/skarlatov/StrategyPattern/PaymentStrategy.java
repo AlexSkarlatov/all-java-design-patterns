@@ -17,9 +17,7 @@ class CreditCardStrategy implements PaymentStrategy{
     }
     @Override
     public void pay(int amount) {
-
         System.out.println(amount + " paid with credit/debit card");
-
     }
 }
 
@@ -29,7 +27,6 @@ class PaypalStrategy implements PaymentStrategy {
         this.emailID = emailID;
         this.password = password;
     }
-
     @Override
     public void pay(int amount) {
         System.out.println(amount + " paid using Paypal");

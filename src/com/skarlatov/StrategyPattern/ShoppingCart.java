@@ -29,6 +29,7 @@ public class ShoppingCart {
         }
         return sum;
     }
+    // context always uses the strategy and receives it pased as a paramter at run time for use
     public void pay(PaymentStrategy paymentMethod){
         int amount = calculateTotal();
         paymentMethod.pay(amount);
