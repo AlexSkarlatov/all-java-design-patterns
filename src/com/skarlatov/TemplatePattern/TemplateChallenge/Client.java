@@ -12,5 +12,7 @@ public class Client {
 
         OrderTemplate storeOrder = new StoreOrder();
         storeOrder.processOrder(false);
+
+
     }
 }
