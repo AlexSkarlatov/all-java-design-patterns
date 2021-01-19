@@ -11,8 +11,6 @@ abstract class OrderTemplate {
     public final void giftWrap(){
         System.out.println("gift wrapping process successful");
     }
-
-
 // this is the tempaltye method
     public final void templateMethod(boolean isGift) {
     }
