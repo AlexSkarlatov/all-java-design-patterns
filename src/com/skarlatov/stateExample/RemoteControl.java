@@ -2,8 +2,8 @@ package com.skarlatov.stateExample;
 
 
 /*
-abstract class is for default behavior in all instances of the state machine or perhaps any finals variable seneed to be declared
-
+abstract class is for default behavior in all instances of the state machine or perhaps
+ any finals variable seneed to be declared
  */
 public abstract class RemoteControl {
     public abstract void pressSwitch(TV context);
@@ -55,7 +55,6 @@ public class RemoteControl {
 
         remoteBasic.setState("off");
         remoteBasic.doAction();
-
     }
 
 }

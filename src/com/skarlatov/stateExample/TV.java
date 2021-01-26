@@ -1,7 +1,4 @@
 package com.skarlatov.stateExample;
-
-
-
 /*
 this is the context class
 it defines the interface of interest to the clients
@@ -19,17 +16,12 @@ public class TV {
         return state;
         //return state.toString();
     }
-
     public void setState(RemoteControl state) {
         this.state = state;
     }
-
-
     //do something when button is pressed
     public void pressButton(){
         // state will point to a areference of on or off at all times
         state.pressSwitch(this);
     }
-
-
 }
