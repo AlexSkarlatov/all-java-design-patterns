@@ -1,4 +1,7 @@
 package com.skarlatov.randomWalk;
+
+import java.util.Random;
+
 /*
 this is a random walk simulator cliant game thing. it will have many functionalities and game modes
 but for now I will just use String builder and a 2d array to create a simple walking simulation
@@ -23,6 +26,13 @@ public class Client {
             stringBuilders[i].append("\n");
         }
         return stringBuilders;
+    }
+    public static void randomPlayerStartLocation(StringBuilder[] stringBuilders){
+        Random r = new Random();
+        int randomNumRow = r.nextInt(10);
+        int randomNumColumn = r.nextInt(10);
+
+        //TODO WORKING ON THIS ONE
     }
     public static void main(String[] args){
         // the board game map thing
