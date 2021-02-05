@@ -1,6 +1,4 @@
-package com.skarlatov.challenge;
-
-import org.w3c.dom.css.Rect;
+package com.skarlatov.decorator.challenge;
 
 public class Client {
     public static void main(String[] args){

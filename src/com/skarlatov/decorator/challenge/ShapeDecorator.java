@@ -1,4 +1,4 @@
-package com.skarlatov.challenge;
+package com.skarlatov.decorator.challenge;
 
 abstract class ShapeDecorator implements ShapeI {
     protected ShapeI decoratedShape;

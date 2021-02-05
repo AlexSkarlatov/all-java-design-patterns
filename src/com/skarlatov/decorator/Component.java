@@ -1,4 +1,4 @@
-package com.skarlatov;
+package com.skarlatov.decorator;
 //remember the compoentn defeines the interface for both decorator and basic behavior compnentt to follow
 //
 public abstract class Component {

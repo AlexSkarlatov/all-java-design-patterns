@@ -1,4 +1,4 @@
-package com.skarlatov;
+package com.skarlatov.decorator;
 
 public class Main {
 
