@@ -1,0 +1,105 @@
+
+
+OVERVIEW
+	• The state design pattern wallows an object to alter its behavior when  its internal state changes
+		○ Object will appear to change its class
+		○ An objects behavior is the result of the function of its state
+			§ Behavior gets changed at runtime
+				□ Depending on the state
+	• Normallyh, if we have to change behavior of an object based on its state , we ahved a state variable in the object and use if else condition block ort perform ddifferent actions based on the state
+		○ With the state patrtern, we can remove dependencies on if/else or switch /case conditional logic
+	• We create obvjects which represent various states and a context object whose bnehavior varies as its state object changes
+	• Used toi provide a systematic and sloosely coupled way to acchieve state changes through a context and state implementations
+	• Is very similar to strategy pattern which we will discuss in a future lecture
+
+
+EXamples
+
+	• A traffic signal
+		○ Aa stop, goi and slow down states
+	• Consider a tcp network connection
+		○ An object that is responsible for communication can be in variouys states
+			§ Established, listening and closed
+		○ When a tcpconnection object receives requests from other oibjects, it responds idfferentrly depending on its curent state
+			§ Eg an open request depends on wheter the connection is in its closed state or its established state
+	• How about a job processing application where we can porcess only one job at a time
+		○ If a new job appears, either trhe application will process that job accepted
+		○ Or it will signal that the new job cannot be processed at this moment becauser the system is already processing the maximum number of jobs in it(Queued)
+
+
+When to uyse the state pattern
+
+
+
+	• When an objects behagvfior dewpends on its state, and irt must chang its behavior at runtime depending on that state
+	• When operation have large multipart conditional statements that depend on the objects state,
+		○ State is usually represented by one or more enumerated constants
+		○ Often , several operations will contain this same conditional structure
+
+		• State pattern puts each branch of the conditional; in  a separate class
+		• Lets you treate the objects stae as an object in its own right that can vary independently from other ojbects
+
+
+Advantages()
+	• Puts all behavior associated with a state into one object
+		• Improves cohesion
+	• Allows state transition logic to be incrorporated into a state object rather than in a monolithic if or switch statement
+	• Helpse avoid inconsistent states since state changes occur by rewbinding onwe variabvle ratehr than several
+	• Very easy to add  more states for addditional behavior
+		• Makes code more robuse, easily maintainable and flexible
+One drawback is that the pattern does incredase the number of objeects (one for each state)
+
+
+
+PARTICIPANTS
+	• Context
+		• Defines the interface of interest to clients
+		• Maintains an instance of a concrete state subclass that defines the current state
+	• State
+		• Defines an interface for encapsulating the behavior associated with a particular state of the context
+	• ConcreeteState subclasses
+		• Each subhclass implementats a abehavior associated with a state ofr the copntext
+
+
+
+	What is the workflow
+	• The context delegatyes state-specific requests to the current concrete state object
+		• Has a reference to the concrete state object
+	• A context may pass itself as an argument ot the state object handling the reques
+		• Lets the straew object acce3ss the context if necessary
+	• Clients can configure a contexst with state objects
+		• Once a context is configured, its clienrts don’t have to deal with the state objects directly
+	• Either Context or thje concretestate subclasses can decide which state takes priority over another and under what circumstances
+
+	Advantages of implementation
+	• As mentioned previously, this pattern puts all behavior associated with a particulatr state into one objefct
+		•  a new states and transitions can be added easily by defining new subclasses
+	• Large conditional statements are undesirable
+		• Monolithic
+		• Monolithic and tend to make the code les explicit, which in turn makies them difficult to modify and ewxtent
+		• State patternjh  ofers a better wayu to structure state-specifice code
+		• Logic that determines the state transitions does not reside in mono0lithic if or switch statements but instead is partitioned between the state subclasses
+	• Makes state transition explicit by introducing separate objects for different states
+	• State objects can protect the context dfrom inconssisten internal states
+		• State transition are atomic from the context perspecitver
+			§ Happen by rebinding one variable (the context state objewct variable)
+	• State objects can be shared
+		• If state objects have no instance variables
+
+
+
+
+Summary
+	• Allows an object to have many differentr behaviors that are gbased oin its internal state
+	• Represents state as an object
+	• The context get s itss behavior by delegatingh to the curent state object it is composed with
+	• By encapsulating each state into a class we localize any changes that will need to be made
+State transitions can be controlled by the state classes or bhy the context classes
+
+
+
+
+
+
+
+

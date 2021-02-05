@@ -1,0 +1,5 @@
+ a two dimensional array of type string builder or
+ of type VERTEX will be used to model the board
+
+ to view the game we can display it to console.log as a stringBuilder object in a grid of some kind
+ dashes being vertexes (unoccupied) and O's being (vertexes occupied)

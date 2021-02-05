@@ -1,0 +1,138 @@
+Overview
+	• The template method defines the skeleton of an algorithm in an operation, deferinng some steps to subclasses
+		○ Lets subdclasses redefine certain steps of a n algorithm withoutr changing the algorithms sjtrcutrure
+		○ Helps us generalize a commmon process at an abstract level, from a set of different procedures
+	• All aobutr creationg a templarte for an algorithm
+		○  a templete is just a method that defines an algorithm as a set of steps
+		○ One or more of these steps is defrined to be abstract ( a method stup,) and implemented by a subclass
+				□ Ensures the algorithms structure stays unchanged while subclasses provide some part of the implmeentation
+
+
+
+	• Enables you to define the sequence of steps and then overrride thosse steps that need to cdhange
+	• Softwared reusde is fundamantal goal of this metyhod
+		○ This is why trhe pattern is used in many class libraries and framework development
+	• One of the more common patterns in use today
+	• I
+Examples
+	• In the real world templates are used all the time
+		○ For architectrural plansw, and throughout the engineering domain
+		○ A template paln may be defined which is then built on with further variations
+	• Suppsoe we want to make pizza
+		○ The basiuc mechanism is the same, but extra materials are added based upon the customers choic
+			§ Whether he / she wants a veghetarian pizza or a non vegetarian pizzxa
+		○ A
+	• For an engineering studewnt in general most of the subjects in the first semester are common for all concentrations
+		○ Later, an additional papers are added in his her course based on his her specialization, (computer science, electyronics, etc.)
+	• MORE EXAMPLES
+		○ Suppose we want to provide an algorithm to build a house
+			§ The steps need rto be performed to build a house are building foundation, building pillars, building walls and windows
+			§ The important points is that the we can noot change the order of executrion
+				□ We cannot build windows before abuilding the foudnation
+			§ So in this case we can creatre a template method that will use dioffernet methods to build thje house
+				□  building the foundation for a house is same for all type of houses , whter it’s a wooden house or a glass house
+				□ We can provide a base implementation for this if subclasses want to override this method, they can bgut mostly it is common for all the types of houses
+		○ Another example would be the methods for connectina dn querying oiracle or sql server datasbases
+			§ The methods may be different buy , they share the same conceptual process
+		○ Examples in the jdk include
+			§ Non-abstract methods of java.io .inputrstream, java.io.outputstream, java.io.,reader, and ajave.io.writer
+			§ Non abstract method of java.util abstract list, sabhstract set, and ajava.util.abstract map
+			§ The arrays class uses it for sorting, jframe uises update() as a tmeplate metrhod
+			§ Subclasses of the jframe use paint graphics g) as their hook mehtod
+OFTEN USED IN FRAMEWORKS
+	• This pattern shows up so often because it is a great design tool for creating frameworks
+		○ The framework controls how something tgets doene
+		○ Leaves the person using the framework to specify your own details about what is actuallly happening at each step of the frameworks algorithmj
+	• Consider an application framework that provides applicastion and document claseedsws
+		○ The application classes is repsonsible for openingt  exdsissating documents stored in an external format such as a file
+		○ A document object represewnts the information in a document once it is read from the file
+	• Applications build witrh the framewok can subclass application and document sto suit specificx needs,
+		○ A drawing application defines draw application and drawcdocument subclases
+		○ A spreadsheet application defines spereadsheet aplication and spreadsheet document subclasesw
+	• When to sue this pattern
+	• W
+When to use rthis pattern
+	• Whenb you need to support multiple algorithms that behave conceptuallly the same but have different implementations for each of trheir stepps
+	• When you want to oavoid code duplication in an algorithm
+		○ Implement the variations of the algorithm in subclasses
+		○ A good example of refactorinfg to generalize
+		○ First identify the differences in the existing code and then separate the differences into new operations
+			§ You then replace the diifferi9ng code with a template method that calls one of those new operations
+		○ When you want to control at what points sub cloassing is allowed
+			§ Define a template method that calls hook operations at specific points thereby permitting extensions only at those points
+		○ When behavior af analgorithm cdan vary you let swubclases implemetn the behavior through overriding
+
+sSUMMARY
+
+	• Tempalte method should conssit of certain steps whose order is fixed
+	• For some of trhe methods ,k implmeentations differs from base class tro subclass
+	• The template method gives us an important technique for code reuse
+	• The strategy and template me3thod patterns both encapsulate algorithms
+		○ One by inheritance and one by composition
+	• The factory method is a specialization of template method
+	• So factoryh method I already seen is hould already know how to implmeenta this in a certain way this will be familiar
+
+
+Implementation overview
+	• The template method pattedrn is a very common pattern
+		○ There are many implementations of the template methods that do not quite look like the textggboook design of the pattern
+		○ It will take paractiuce to identikfy when and how to use this pattern
+	• Most of the time, subclasses call medthods in the super class
+			§ In the template pattern the superclass template method calls the methods ( abstract in base class) in the subclasses
+			§ Known as the hollywood principle -= "don’';t xcall us, we'll call you"
+	• The hollywood principle guilds us to put decision making in high level modules that can decide how and when to call low level modules
+	• The main template method is in the base class which is an abstract class
+		○ The abstract class may define concrete methods,. Abstract methods and hooks
+		○ Abstract methods are implemented by the subclasses
+	• A hook is a method thaat is declared in the abstract class
+		○ Given an empty or default implementation
+		○ Gives subclasses the ability to hook into the algorithm at various points
+A subclass is also free to ignore the hook
+
+
+
+
+	Participants
+	• abstractClass
+		○ Contains the template method and abstract versions odf the operations used in the template method
+			§ The template method defines the skeleton of an algorithm
+	• The template metrhod makes use of the primitive operations to implemee3nt an algorithm
+		○ Callls primitive operations as well as operations defined in  the abstractclass or those of other objects
+		○ Decoupled from the actual implementation of these operations
+	• ConcreteClass
+		○ Implements the abstract operations, which are called when the templateMedthod() needs themn
+May be many concrete classes, each implementing the full set of operations required by the template method
+
+
+picture diagram here
+
+
+
+
+Implementation issues
+	• The primitive operations that a template method calls can be declared as protected merthods
+		○ Ensures that they are only called by the template mewthod
+	• The dtemplate method istelf should not be overriden
+		○ To prevfent subclasses from changnging the algorithm, declare the template method as final
+	• An important goal in de3signing template emthods is to minimize the number of abstract operations used to flesh out the algorithm
+		○ We do not have a choice , overriding is a must in this case
+		○ To
+	• To reuse an abstrace class effectgively, subclass writers must understand which operations that need overriding the more tediousm things get for clienmts
+	• To reuse and abstrace class effectively ssubclass writers must understanc which operations are designed for overriding, the more
+		○ The more operations that need overriding , the more tedcdious things get for clients
+
+Summary
+	• Templates provide a good platform for code reuse
+		○ Are also helpful in ensuring the required steps are implemented
+	• ConcreteClass relies on AbstractClass tom implement the invariant steps of the algorithm
+	• Concrete class relies on abstractclass to implement the non changing steps of the algorithym
+	• When broiken down there are four differentr types of methods used in the parent ahbstract class
+		○ Concrete methods
+			§ Standard complete mehtods that are useful  to the subclasses, ()usually utility mehtods)
+		○ Abstract emthods
+			§ Methods containing no implementation that must be implemented in the subclasses
+		○ Hook methods (
+			§ Methods containing a default implementation that may be overridden in some classes
+			§ Often does nothing by default
+		○ Template methods
+A method that calls any of the mtethods listed above in order to describew the alghorithm without needing to implement the details (loose coupling)

@@ -1,0 +1,97 @@
+Overview
+	• The visitor design patern represents an operation (method) to be performed on the elemnts of  an object structure (collection, list, etc.)
+		○ Lets you define a new operation withoutr changing the classes of the elements on which it operates
+	• Helps us to add new functionalities to an existing object structure in such a way that trhe old structure remains unaffected by these changes
+		○ We can follow the open / close principle4 here
+
+
+Examples
+	• Consider a taxi booking scenario
+		○ Taxi arrives at the defined location for the pickup
+		○ Once we enter into it, trhe visiting taxi takes control of the transportantion
+			§ It can choose a different way toward our destination and we may or may not have any prior knowledge otf that way
+	• A shopping cart where we can add different type of iteems (elemtnts)
+		○ When we click on checkout button, it calcualtes the total amount to be paid
+		○ We can move out the calculation logic from an item classs tro anotgher calass using the visitor patternb (less coupling)
+	• This patern is very useful when plugging  into apis
+		○ Clients can perform operations on a class with a visiting class without modifying the source
+More overview
+	• Allows for one or more operations to be applied to a set of objects at runtime, dewcoupling the operations from the object structure
+	• Used when we havew to perform an operartion oin a group of similar kinds of objects
+		○ We can move the operational logic from the objects to another clas
+	• Usefule for adding new operations without affecting the existing structure
+
+When to use a visitor pattern
+	• When an object structure collection or list  contains many classes of objects with differing interfaces, and you want to perform operationss on these objects that depend on their concrete classes
+		○ Visitor lets you keep related operatiosn together by defining them in one class
+			§ Encourages cleaner code
+	• When you want to decouple some logical code from the elements that you are using as input
+	• When you want to add capabilities to a composite of objects and encapsulation is not important
+	• When the object structure is shared by many applications, use the visitor pattern to put operatiosn in just those applications that need them
+
+
+
+
+Participants
+	• Visitor
+		○ Used to declare the visit operations for all the tytpes of viasitable classes
+		○ The oeprations name and signatyure identifies the class that sends the visit requiest ot he visirtor
+			§ Lets the visitor determin th concrete class of the elemtn being visitited
+				□ The visitor can thhen access the element difrectly through the particular interface
+	• Concrete Visitorw
+		○ Implwements each merthoid declared by visitor interface
+		○ Each operation implements a fragment of the algorithm defined for  the corresoponding clas of object in the structure
+		○ Each operation implements a fragment of the algorithm defined for the corresponding class of object in thye structure
+		○ Provides the context for the algorithm and stores its localk state
+			§ State often accumulates results during the traversal of the structure
+	• Element
+		○ Ddefines an accepots method that yskrd s bidiyot sd sn sthumryn
+			§ The entry pointy which enables an object to be "visited" by the visitor objecty
+	• Cocnrete Element
+		○ Implements an accept method that takes a visitor as an argument
+			§ The fvisitor opbject  is passed to this object using the accept method
+	• Object structure
+		○ Can enumerate its elements
+		○ May provide a high level interfracxe to allow the visitor to visirt its elemtns
+		○ May eiuther be a comnposite or a collection  such as a list or a set
+	• Client
+		○ A consumer of the classes of the visitor desing pattern
+Has access to the data structrure objects and can instruct them to accept a visitor to perfomr the apporopriate processin
+
+
+
+
+	• WA CLIENT CREATES a concredte visitor object and then traverstes the object structure composite or collection, visting each element with the visitor
+	• When an element is visited, it calls the visitror ooperation that coresponcdds to its class
+		○ The element supplies itslef as an arument to this operation to let the visitor access its state
+
+Summary
+	• The visitor pattern will create an external classs that uses data in other classeds thke core of thjis pattern is the visitor interface
+		○ Dsefines a visit operation for each ty8pe of concrete lement in the object strucurtre
+			§ Composite or collection
+	• The concrete visitor implements the operatiosn defined in the visitor interface
+		Will sotre loical state typpically as it raverses the set of elements
+
+
+	• The element interaace will simplyh define an accept method to allow the visitor to run somew action oiver that element
+		○ The concrete element will implewment this accept method
+	• Visxitor operations are controlled in a unified manner
+
+Sumjmary
+	• Allows you to add operations jto a composite structrure or collection without changing the structure itself
+	• Very easy to add operations trhat depend opn the components of complex objects
+		○ You can define anew operations over an object sstrucure simply by adding a new visitor
+	• A visitor gathers related opperations and speparates unreleated ones
+		○ Loocalized in a visitror
+		○ Unrelated sets of behavior are partitioned in their own visitor sublcasses
+		○ Simplifies both the jclases defining the elements and the algorithms defined in the visitors
+
+LOOSE COUPLING, EASIER TO MAINTAIN
+
+Summary
+	• Class encapsulation amy need to be compromised when visitors are used
+		○ If the exisaitn sttructure is really complex, the traversal mnechanism becomes complex
+	• Aa drawback of visitor pattern is that we should know the return type of visit()
+	• Methods at the time of desigingh
+		○ Otherwise we will ahjve to change the interface ajnd all of tis implementations
+Another drawback is that if there ared too many implmeentations of the visitor interface it makes it hard to extend
