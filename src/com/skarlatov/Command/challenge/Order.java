@@ -1,4 +1,5 @@
 package com.skarlatov.Command.challenge;
 
-public class Order {
+public interface Order {
+    void execute();
 }
